@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { getPokemonDetail } from '@/lib/pokeapi'
-import { NotificationButton } from '@/components/notification-button'
 
 interface PageProps {
 	params: Promise<{ id: string }>
@@ -120,7 +119,6 @@ export default async function PokemonDetail({ params }: PageProps) {
 					</div>
 				</div>
 			</div>
-			<NotificationButton pokemonName={pokemon.name} />
 		</div>
 	)
 }
