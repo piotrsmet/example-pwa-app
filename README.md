@@ -24,8 +24,8 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+-   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Progressive Web App (PWA)
+
+This application is configured as a Progressive Web App, meaning it can be installed on devices and work offline.
+
+### Key PWA Files
+
+-   **`app/manifest.ts`**: Ten plik generuje dynamicznie plik `manifest.json`. Opisuje on to w jaki sposób zainstalowana aplikacja będzie się wyświetlać na telefonie czyli:
+
+    -   Nazwa
+    -   Ikony (zawarte w `public/icons/`)
+    -   Motywy
+    -   Sposób wyświetlania
+
+-   **`next.config.ts`**: Konfiguracja pluginu `@ducanh2912/next-pwa`. Ten odpowiedzialny jest za:
+
+    -   Generowanie Service Workera
+    -   Caching
+
+-   **`public/icons/`**: Zawiera ikony (`android-chrome-192x192.png`, `android-chrome-512x512.png`) wykorzystywane jako ikona aplikacji w menu telefonu oraz ikona wyświetlana przy uruchamianiu aplikacji
