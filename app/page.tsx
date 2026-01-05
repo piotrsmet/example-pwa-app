@@ -1,5 +1,6 @@
 import { PokemonGrid } from '@/components/pokemon-grid'
 import { GenerationSelector } from '@/components/generation-selector'
+import { NotificationButton } from '@/components/notification-button'
 import { getPokemonList, GENERATIONS } from '@/lib/pokeapi'
 
 interface HomeProps {
@@ -38,6 +39,8 @@ export default async function Home({ searchParams }: HomeProps) {
 					<PokemonGrid pokemonList={pokemonList} />
 				</div>
 			</div>
+
+			<NotificationButton />
 
 			<footer className='text-center py-8 text-gray-500 text-sm'>
 				Data provided by{' '}
