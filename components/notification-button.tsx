@@ -39,13 +39,32 @@ export function NotificationButton({ pokemonName }: NotificationButtonProps) {
 				: 'Minęła minuta!'
 
 			setTimeout(async () => {
+				let swRegistration = null
 				if ('serviceWorker' in navigator) {
-					const reg = await navigator.serviceWorker.ready
-					reg.showNotification('Przypomnienie', {
+					try {
+						swRegistration = await Promise.race([
+							navigator.serviceWorker.ready,
+							new Promise((_, reject) =>
+								setTimeout(
+									() => reject(new Error('SW timeout')),
+									2000
+								)
+							),
+						])
+					} catch (e) {
+						console.log(
+							'Service Worker not ready, falling back to standard notification'
+						)
+					}
+				}
+
+				if (swRegistration) {
+					;(
+						swRegistration as ServiceWorkerRegistration
+					).showNotification('Przypomnienie', {
 						body: notificationBody,
 						icon: '/icons/android-chrome-192x192.png',
-						vibrate: [200, 100, 200],
-					} as any)
+					})
 				} else {
 					new Notification('Przypomnienie', {
 						body: notificationBody,
