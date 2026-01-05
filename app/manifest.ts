@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'PWA Example App',
-    short_name: 'ExamplePWA',
+    name: 'Pokedex PWA',
+    short_name: 'Pokedex',
     description: 'Przykładowa aplikacja Progressive Web App w Next.js',
     start_url: '/',
     display: 'standalone',
